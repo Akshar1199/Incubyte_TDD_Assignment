@@ -1,5 +1,7 @@
 package com.incubyte.calculator;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -34,9 +36,19 @@ public class StringCalculator {
     public static void main(String[] args) {
         StringCalculator calculator = new StringCalculator();
         Scanner scanner = new Scanner(System.in);
+        StringBuilder inputBuilder = new StringBuilder();
 
-        System.out.println("Enter the string of numbers:");
-        String input = scanner.nextLine();
+        System.out.println("Enter the string of numbers (comma-separated or newline-separated). Type 'DONE' on a new line to finish:");
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            if (line.equalsIgnoreCase("DONE")) {
+                break;
+            }
+            inputBuilder.append(line).append("\n");
+        }
+
+        String input = inputBuilder.toString().trim();
 
         try {
             int result = calculator.add(input);
@@ -45,4 +57,5 @@ public class StringCalculator {
             System.out.println(e.getMessage());
         }
     }
+
 }
