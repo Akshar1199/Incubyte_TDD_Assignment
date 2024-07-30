@@ -1,8 +1,11 @@
+package com.incubyte.calculatortest;
+
 import org.junit.Test;
+import com.incubyte.calculator.StringCalculator;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
-public class test {
+public class StringCalculatorTest {
 
     private final StringCalculator calculator = new StringCalculator();
 
